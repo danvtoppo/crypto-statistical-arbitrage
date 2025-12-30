@@ -1,22 +1,29 @@
-# crypto-statistical-arbitrage
+# Crypto Statistical Arbitrage Pipeline
+
 An ETL pipeline and analytical engine built to detect price divergence between BTC and ETH using rolling Z-Scores.
 
-The StackPipeline: 
-Python (CCXT + Kraken API)
-Database: Neon (Serverless Postgres)
-Analytics: SQL 
+## The Stack
+* Pipeline: Python (CCXT + Kraken API)
+* Database: Neon (Serverless Postgres)
+* Analytics: SQL
 
-The Logic
+## The Logic
 The system calculates a rolling Z-Score of the BTC/ETH ratio to identify mean-reversion opportunities:
 
-If Z > 2.0: BTC Overvalued (Short BTC / Long ETH)
-If Z < -2.0: BTC Undervalued (Long BTC / Short ETH)
+* If Z > 2.0: BTC is Overvalued relative to ETH (Strategy: Short BTC / Long ETH)
+* If Z < -2.0: BTC is Undervalued relative to ETH (Strategy: Long BTC / Short ETH)
 
-Architecture
-Ingestion: Python script streams live prices every 5s into Neon.
-Processing: All math is handled server-side via a Postgres View in Neon.
-Efficiency: Separation of concerns—Python handles I/O, while Neon handles the statistical heavy lifting.
+## Architecture
+* Ingestion: Python script streams live prices every 5 seconds into Neon.
+* Processing: All statistical math is handled server-side via a Postgres View in Neon.
+* Efficiency: Separation of concerns—Python handles I/O and API communication, while Neon handles the intensive statistical heavy lifting.
 
-Structure
-ingestion.py: Live data streaming 
-script.schema.sql: Database tables and Neon View 
+## Structure
+* `ingestion.py`: Live data streaming and database insertion script.
+* `schema.sql`: Database table definitions and Neon View logic.
+* `backtest.sql`: Logic for verifying signals against future price movements.
+
+---
+
+### Professional Summary
+> Real-Time Statistical Engine: Architected a data pipeline using Python and Neon Postgres to ingest live crypto data and generate trading signals via SQL Window Functions (Rolling Z-Scores).
