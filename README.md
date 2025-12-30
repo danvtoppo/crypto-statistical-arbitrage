@@ -19,7 +19,7 @@ The system calculates a rolling Z-Score of the BTC/ETH ratio to identify mean-re
 * Efficiency: Separation of concerns—Python handles I/O and API communication, while Neon handles the intensive statistical heavy lifting.
 
 ## Structure
-* `trading_pipeline.jptnb`: Database insertion script.
+* `trading_pipeline.jpynb`: Database insertion script.
 * `schema.sql`: Database table definitions and Neon View logic.
 
 ----
