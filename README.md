@@ -22,7 +22,7 @@ The system calculates a rolling Z-Score of the BTC/ETH ratio to identify mean-re
 * `ingestion.py`: Database insertion script.
 * `schema.sql`: Database table definitions and Neon View logic.
 
----
+----
 
 ### Professional Summary
 > Real-Time Statistical Engine: Architected a data pipeline using Python and Neon Postgres to ingest live crypto data and generate trading signals via SQL Window Functions (Rolling Z-Scores).
